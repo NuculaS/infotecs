@@ -1,1 +1,2 @@
 # infotecs
+JS test task

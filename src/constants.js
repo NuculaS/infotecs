@@ -1,0 +1,5 @@
+export const DEFAULT_VALUE = 'default'
+export const INEXPENSIVE_TO_EXPENSIVE_VALUE = 'inexpensiveToExpensive'
+export const EXPENSIVE_TO_INEXPENSIVE_VALUE = 'expensiveToInxpensive'
+export const BEST_RATING_VALUE = 'bestRating'
+export const DISCOUNT_VALUE = 'discount'
