@@ -15,7 +15,7 @@ export function fetchData(limit) {
     root.append(loader)
 
     fetch(url)
-        .then((data) => data.json())
+        .then(data => data.json())
         .then(({ products }) => {
             setState('products', products)
             drawProductsList()

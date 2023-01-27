@@ -16,7 +16,7 @@
 import { Dropdown } from './Dropdown/index.js'
 import { create } from '../../../utils/index.js'
 
-export const ListItem = (elem) => {
+export const ListItem = elem => {
     const listItem = create({
         tagName: 'div',
         classes: 'item',

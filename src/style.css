@@ -123,6 +123,32 @@ body {
     display: block;
 }
 
+.list .dropdown .image ul {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline: 0;
+}
+
+.list .dropdown .image li {
+    display: block;
+    width: 100%;
+    margin: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--text-primary);
+}
+
+.list .dropdown .image li.active {
+    background-color: var(--border-active);
+}
+
 .list .dropdown .image .discount {
     position: absolute;
     bottom: 15px;
@@ -137,7 +163,7 @@ body {
     font-size: 12px;
     line-height: 15px;
     color: var(--text-light);
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .list .dropdown h1 {

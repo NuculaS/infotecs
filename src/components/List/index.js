@@ -21,13 +21,13 @@ const getDragAfterElement = (container, y) => {
     ).element
 }
 
-export const List = (array) => {
+export const List = array => {
     const list = create({
         tagName: 'div',
         classes: 'list',
     })
 
-    list.addEventListener('dragover', (event) => {
+    list.addEventListener('dragover', event => {
         event.preventDefault()
         const afterElement = getDragAfterElement(list, event.clientY)
         const draggable = document.querySelector('.dragging')
@@ -39,7 +39,7 @@ export const List = (array) => {
         }
     })
 
-    array.forEach((elem) => {
+    array.forEach(elem => {
         list.append(ListItem(elem))
     })
 

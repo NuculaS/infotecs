@@ -1,7 +1,6 @@
 import { create } from '../../../../../utils/index.js'
 
-//TODO: сделать быстрый просмотр фотографий
-export const ImageItem = (images, title) => {
+export const ImageItem = (images, title, dropdown) => {
     const imageItem = create({
         tagName: 'img',
         attributes: {
@@ -10,26 +9,37 @@ export const ImageItem = (images, title) => {
         },
     })
 
-    let imageIndex = 0
+    const countOfColumns = images.length
+    let columnWidth
+    let lines
 
-    function changeImage() {
-        imageIndex++
+    dropdown.addEventListener('mouseenter', () => {
+        columnWidth = imageItem.clientWidth / countOfColumns
+        lines = document.createElement('ul')
 
-        if (imageIndex === images.length) {
-            imageIndex = 0
+        for (let i = 0; i < countOfColumns; i++) {
+            const line = document.createElement('li')
+            lines.append(line)
         }
 
-        imageItem.src = images[imageIndex]
-    }
-
-    imageItem.addEventListener('mouseenter', () => {
-        setInterval(changeImage, 700)
+        imageItem.parentNode.append(lines)
     })
 
-    imageItem.addEventListener('mouseleave', () => {
-        clearInterval(changeImage)
-        imageIndex = 0
+    imageItem.addEventListener('mousemove', event => {
+        const x = Math.abs(event.pageX - imageItem.getBoundingClientRect().left)
+
+        const imageIndex = Math.floor(x / columnWidth)
         imageItem.src = images[imageIndex]
+
+        const innerNodes = lines.childNodes
+        innerNodes.forEach(item => {
+            item.classList.remove('active')
+        })
+        innerNodes[imageIndex].classList.add('active')
+    })
+
+    dropdown.addEventListener('mouseleave', () => {
+        lines.remove()
     })
 
     return imageItem

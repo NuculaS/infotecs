@@ -33,7 +33,7 @@ export const Dropdown = ({
         </div>
     `
 
-    dropdown.querySelector('.image').append(ImageItem(images, title))
+    dropdown.querySelector('.image').append(ImageItem(images, title, dropdown))
 
     return dropdown
 }
